@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>TRY10</title>
+</head>
+<body>
+	<script>
+		// 0～4までの範囲の乱数を生成し、定数constに格納する
+		const iRandom = Math.floor( Math.random() * 5 );
+		document.write("<p>iRandom：" + iRandom + "</p>");
+		
+		// 値で分岐
+		switch( iRandom )
+		{
+			case 1:
+				document.write("<p>変数iRandomの値は1です。</p>");
+				break;
+
+			case 2:
+				document.write("<p>変数iRandomの値は2です。</p>");
+				break;
+			
+			default:
+				document.write("<p>変数iRandomの値は1,2ではありません。</p>");
+		}
+
+	</script>
+</body>
+</html>
