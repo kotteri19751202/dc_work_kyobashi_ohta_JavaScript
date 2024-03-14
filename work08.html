@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>WORK08</title>
+</head>
+<body>
+	<script>
+		let strResult = ""; // 結果文字列
+
+		//----------------------------------------
+		// 課題１
+		//----------------------------------------
+		document.write("<p>課題①--------</p>");
+		
+		// 1～100までループ
+		for( let i = 1 ; i <= 100 ; i++ )
+		{
+			// 3の倍数かつ4の倍数の時
+			if( i % 3 == 0 && i % 4 == 0 )
+			{
+				document.write("<p>Fizz Buzz</p>");
+			}
+			else
+			// 3の倍数の時
+			if( i % 3 == 0 )
+			{
+				document.write("<p>Fizz</p>");
+			}
+			else
+			// 4の倍数の時
+			if( i % 4 == 0 )
+			{
+				document.write("<p>Buzz</p>");
+			}
+			else // 数値の時
+			{
+				document.write("<p>" + i + "</p>");
+			}
+		}
+
+		//----------------------------------------
+		// 課題２
+		//----------------------------------------
+		document.write("<p>課題②--------</p>");
+		
+		// iを1～9までループ
+		for( let i = 1 ; i <= 9 ; i++ )
+		{
+			// jを1～9までループ
+			for( let j = 1 ; j <= 9 ; j++ )
+			{
+				document.write("<p>" + i + "*" + j + "=" + ( i * j ) + "</p>");
+			}
+		}
+
+		//----------------------------------------
+		// 課題３
+		//----------------------------------------
+		console.log("課題③--------");
+		
+		for( let i = 1 ; i <= 10 ; i++ )
+		{
+			let strAsterisk = "";
+			
+			console.log("!");
+
+			for( let j = 1 ; j <= i ; j++ )
+			{
+				strAsterisk += "*";
+			}
+			console.log( strAsterisk );
+		}
+
+	</script>
+</body>
+</html>
