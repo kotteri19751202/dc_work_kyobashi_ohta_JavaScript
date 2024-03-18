@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>WORK09</title>
+</head>
+<body>
+	<script>
+		let strResult = ""; // 結果文字列
+
+		//----------------------------------------
+		// 課題１
+		//----------------------------------------
+		document.write("<p>課題①--------</p>");
+		
+		let i = 1;
+
+		// 1～100までループ
+		while( i <= 100 )
+		{
+			// 3の倍数かつ4の倍数の時
+			if( i % 3 == 0 && i % 4 == 0 )
+			{
+				document.write("<p>Fizz Buzz</p>");
+			}
+			else
+			// 3の倍数の時
+			if( i % 3 == 0 )
+			{
+				document.write("<p>Fizz</p>");
+			}
+			else
+			// 4の倍数の時
+			if( i % 4 == 0 )
+			{
+				document.write("<p>Buzz</p>");
+			}
+			else // 数値の時
+			{
+				document.write("<p>" + i + "</p>");
+			}
+
+			i++;
+		}
+
+		//----------------------------------------
+		// 課題２
+		//----------------------------------------
+		document.write("<p>課題②--------</p>");
+		
+		i = 1;
+
+		// iを1～9までループ
+		while( i <= 9 )
+		{
+			let j = 1;
+			// jを1～9までループ
+			while( j <= 9 )
+			{
+				document.write("<p>" + i + "*" + j + "=" + ( i * j ) + "</p>");
+				j++;
+			}
+
+			i++;
+		}
+
+		//----------------------------------------
+		// 課題３
+		//----------------------------------------
+		console.log("課題③--------");
+		
+		i = 1;
+
+		while( i <= 10 )
+		{
+			let strAsterisk = "";
+			
+			console.log("!");
+
+			let j = 1;
+			while( j <= i )
+			{
+				strAsterisk += "*";
+				j++;
+			}
+			console.log( strAsterisk );
+
+			i++;
+		}
+
+	</script>
+</body>
+</html>
