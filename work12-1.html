@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>WORK12</title>
+</head>
+<body>
+	<script>
+		// この課題の意図、連想配列の持ち方はこれであってる？
+		let arrClass01 = [
+							{ name:"tokugawa",	score:0 },
+							{ name:"oda",		score:0 }, 	
+							{ name:"toyotomi",	score:0 },	
+							{ name:"takeda",	score:0	},
+						];
+		
+		let arrClass02 = [
+							{ name:"minamoto",	score:0 },
+							{ name:"taira",		score:0 }, 	
+							{ name:"sugawara",	score:0 },	
+							{ name:"fujiwara",	score:0	},
+						];
+
+		// arrClass01の連想配列に点数を入れる
+		for( let i = 0 ; i < arrClass01.length ; i++ )
+		{
+			arrClass01[ i ][ "score" ] = Math.floor( Math.random() * 100 ) + 1;
+			document.write( arrClass01[ i ][ "name" ] + ":" + arrClass01[ i ][ 'score' ] + "<br>" );
+		}
+		document.write( "<br>");
+		
+		// arrClass02の連想配列に点数を入れる
+		for( let i = 0 ; i < arrClass02.length ; i++ )
+		{
+			arrClass02[ i ][ "score" ] = Math.floor( Math.random() * 100 ) + 1;
+			document.write( arrClass02[ i ][ "name" ] + ":" + arrClass02[ i ][ 'score' ] + "<br>" );
+		}
+		document.write( "<br>" );
+		
+		// oda
+		document.write( arrClass01[ 1 ][ "name" ] + ":" + arrClass01[ 1 ][ 'score' ] + "<br>" );
+		// sugawara
+		document.write( arrClass02[ 2 ][ "name" ] + ":" + arrClass02[ 2 ][ 'score' ] + "<br>" );
+
+		let iOdaScore = arrClass01[ 1 ][ 'score' ];
+		let iSugawaraScore = arrClass02[ 2 ][ 'score' ];
+		
+		// 同じスコアの時
+		if( iOdaScore == iSugawaraScore )
+		{
+			document.write( "同点です。<br>" );
+		}
+		else
+		// odaの方がが高い時
+		if( iOdaScore > iSugawaraScore )
+		{
+			document.write( "odaの方が高いです。<br>" );
+		}
+		else // sugawaraの方が高い時
+		{
+			document.write( "sugawaraの方が高いです。<br>" );
+		}
+
+	</script>
+</body>
+</html>
