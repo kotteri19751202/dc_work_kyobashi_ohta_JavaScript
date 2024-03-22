@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>WORK12-2</title>
+</head>
+<body>
+	<script>
+		// この課題の意図、連想配列の持ち方はこれであってる？
+		// ②名前をキーにしてやってみる。（このやり方があってる気がする）
+		let arrClass01 = { tokugawa:0, oda:0,	toyotomi:0,	takeda:0	};
+		let arrClass02 = { minamoto:0, taira:0,	sugawara:0,	fujiwara:0	};
+
+		// arrClass01の連想配列に点数を入れる
+		for( let key in arrClass01 )
+		{
+			arrClass01[ key ] = Math.floor( Math.random() * 100 ) + 1;
+			document.write( key + ":" + arrClass01[ key ] + "<br>" );
+		}
+		document.write( "<br>");
+
+		// arrClass02の連想配列に点数を入れる
+		for( let key in arrClass02 )
+		{
+			arrClass02[ key ] = Math.floor( Math.random() * 100 ) + 1;
+			document.write( key + ":" + arrClass02[ key ] + "<br>" );
+		}
+		document.write( "<br>");
+		
+		// oda
+		let strKeyOda = "oda";
+		document.write( strKeyOda + ":" + arrClass01[ strKeyOda ] + "<br>" );
+		// sugawara
+		let strKeySugawara = "sugawara";
+		document.write( strKeySugawara + ":" + arrClass02[ strKeySugawara ] + "<br>" );
+
+		let iOdaScore = arrClass01[ strKeyOda ];
+		let iSugawaraScore = arrClass02[ strKeySugawara ];
+		
+		// 同じスコアの時
+		if( iOdaScore == iSugawaraScore )
+		{
+			document.write( "同点です。<br>" );
+		}
+		else
+		// odaの方がが大きい時
+		if( iOdaScore > iSugawaraScore )
+		{
+			document.write( "odaの方が高いです。<br>" );
+		}
+		else // sugawaraの方が高いとき。
+		{
+			document.write( "sugawaraの方が高いです。<br>" );
+		}
+
+	</script>
+</body>
+</html>
