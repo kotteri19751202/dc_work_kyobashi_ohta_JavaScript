@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>TRY17</title>
+</head>
+<body>
+	<script>
+		// 引数：なし、返り値：なしの関数
+		const outputFunction = function()
+		{
+			document.write("<p>引数：なし、返り値：なしの関数</p>");
+		}
+
+		// 引数：あり、返り値：なしの関数
+		const outputFunctionNum = function( iNum )
+		{
+			document.write("<p>引数：" + iNum + "、返り値：なしの関数</p>");
+		}
+		
+		// 引数：あり、返り値：ありの関数
+		const makeFunctionNum = function( iNum )
+		{
+			let strRet = ("<p>引数：" + iNum + "、返り値：ありの関数</p>");
+			return strRet;
+		}
+
+		outputFunction();
+		outputFunctionNum( 10 );
+		let strNum = makeFunctionNum( 10 );
+		document.write( strNum );
+
+	</script>
+</body>
+</html>
