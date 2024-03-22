@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>WORK13</title>
+</head>
+<body>
+	<script>
+		
+		// ================================
+		// 計算関数
+		// ================================
+		function calcFunction( iNum )
+		{
+			let iRetNum = 0;
+
+			// 偶数の時
+			if( iNum % 2 == 0 )
+			{
+				iRetNum = iNum * 10;
+			}
+			else // 奇数の時
+			{
+				iRetNum = iNum * 100;
+			}
+			
+			return iRetNum;
+		}
+
+		// 乱数作成
+		let iInputNum = Math.floor( Math.random() * 10 ) + 1;
+		// 結果表示
+		document.write( "inputNum：" + iInputNum + "<br>" );
+
+		// 計算関数実行
+		let iResultNum = calcFunction( iInputNum );
+		
+		// 結果表示
+		document.write( "resultNum：" + iResultNum + "<br>" );
+
+</script>
+</body>
+</html>
