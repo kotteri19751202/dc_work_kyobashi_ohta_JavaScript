@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>WORK16</title>
+</head>
+<body>
+	<script>
+		
+		// 人間クラス
+		class CHuman
+		{
+			constructor( strName, iAge )
+			{
+				this.strName = strName; // 名前
+				this.iAge = iAge;		// 年齢
+				
+			}
+			// 計算して表示する
+			calcAge = () =>
+			{
+				const iAdultAge = 20;
+				let iAdultAfterAge = this.iAge - iAdultAge;
+
+				document.write( this.strName + "さんは成人してから" + iAdultAfterAge + "年経っています。<br>");
+			}
+		}
+
+		// 太郎のインスタンス生成と処理
+		let taro = new CHuman( "太郎", 28 );
+		document.write( taro.strName + "："+ taro.iAge + "<br>" );
+		taro.calcAge();
+
+		// 次郎のインスタンス作成と処理
+		let jiro = new CHuman( "次郎", 22 );
+		document.write( jiro.strName + "："+ jiro.iAge + "<br>" );
+		jiro.calcAge();
+
+</script>
+</body>
+</html>
