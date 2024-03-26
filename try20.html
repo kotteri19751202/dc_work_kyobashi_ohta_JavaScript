@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>TRY20</title>
+</head>
+<body>
+	<script>
+		// 商品クラス
+		class CProduct
+		{
+			constructor( strName, iStock )
+			{
+				this.strName = strName; // 商品名
+				this.iStock = iStock;	// 在庫数
+				
+				// 在庫を表示する
+				this.showStock = () =>
+				{
+					document.write( this.strName + "の在庫は" + this.iStock + "箱あります<br>");
+				}
+			}
+		}
+
+		// マスクのインスタンス生成と処理
+		let mask = new CProduct( "マスク", 30 );
+		document.write( mask.strName + "<br>" );
+		mask.showStock();
+
+		// 鉛筆のインスタンス作成と処理
+		let pencil = new CProduct( "えんぴつ", 200 );
+		document.write( pencil.strName + "<br>" );
+		pencil.showStock();
+
+	</script>
+</body>
+</html>
