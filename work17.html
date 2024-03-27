@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>WORK17</title>
+</head>
+<body>
+	<script>
+		// 自分の誕生日のDateオブジェクト作成
+		let dateMyBirthDay = new Date( "1975/12/02" );
+		// 今日のDateオブジェクト作成
+		let dateToday = new Date();
+		// 経過ミリ秒を求める
+		let ms = dateToday.getTime() - dateMyBirthDay.getTime();
+		// ミリ秒を日付に変換する（端数切捨て）
+		let days = Math.floor( ms / ( 1000 * 60 * 60 * 24 ) );
+
+		// 日数表示
+		document.write( days + "日です<br>");
+</script>
+</body>
+</html>
