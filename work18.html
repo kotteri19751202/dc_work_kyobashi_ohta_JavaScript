@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>WORK18</title>
+</head>
+<body>
+	<script>
+		// 計算関数
+		const calc = ( fRadius ) =>
+		{
+			// 直径
+			let fDiameter = fRadius * 2;
+			// 円の面積
+			let fArea = Math.PI * fRadius * fRadius;
+
+			return { fDiameter, fArea };
+		}
+		// 関数呼び出し
+		let arrResult = calc( 4.0 );
+
+		// 半径表示
+		document.write( "直径：" + arrResult[ "fDiameter" ] + "<br>");
+		// 面積表示
+		document.write( "面積：" + arrResult[ "fArea" ] + "<br>");
+</script>
+</body>
+</html>
