@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>TRY21</title>
+</head>
+<body>
+	<script>
+		// Dateオブジェクト作成
+		let date = new Date();
+		document.write( date + "<br>");	// 本日の日付
+
+		let day = date.getDate();
+		document.write( day + "<br>");	// 今日の日
+
+		date.setDate( day + 1 );
+		document.write( date + "<br>");	// 明日の日付
+
+	</script>
+</body>
+</html>
