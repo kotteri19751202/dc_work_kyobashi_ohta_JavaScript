@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>WORK20</title>
+</head>
+<body>
+	<script>
+		let iNum = 10;
+		const scopeInFunction = () =>
+		{
+			let iNum = 20;
+			document.write( "関数内：" + iNum + "<br>" )
+		}
+
+		scopeInFunction();
+		document.write( "関数外：" + iNum + "<br>" )
+
+	</script>
+</body>
+</html>
