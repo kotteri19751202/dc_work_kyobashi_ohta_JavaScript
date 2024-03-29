@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>WORK19</title>
+</head>
+<body>
+	<script>
+		// 文字列関数
+		const funcString = ( strString ) =>
+		{
+			//let strString = "abcdefghijklmn";
+			
+			// 引数表示
+			document.write( "引数：" + strString + "<br>");
+
+			// ①文字が含まれる時
+			if( false == strString.indexOf( "h" ) )
+			{
+				// 含まれてない
+				document.write( "①：hが含まれてない" + "<br>");
+			}
+			else
+			{
+				// 含まれています
+				document.write( "①：hが含まれています" + "<br>");
+			}
+
+			// ②指定文字が最初に合われる位置を返す
+			let iSerchIndex = strString.indexOf( "g" );
+			// 見つからなかったとき
+			if( iSerchIndex == -1 )
+			{
+				// インデックス表示
+				document.write( "②：gが見つかりませんでした。" + "<br>");
+			}
+			else // 見つかったとき
+			{
+				// インデックス表示
+				document.write( "②：gが見つかりました。iSerchIndex：" + iSerchIndex + "<br>");
+				
+				// 指定インデクス以前を削除する
+				strString = strString.slice( iSerchIndex );
+				// 引数表示
+				document.write( "③：指定インデックスの左削除：" + strString + "<br>");
+
+				// 大文字に変換する
+				strString = strString.toUpperCase();
+				// 引数表示
+				document.write( "④：大文字に変換：" + strString + "<br>");
+
+				// 文字列置換
+				strString = strString.replace("KL", "xy");
+				// 引数表示
+				document.write( "⑤：文字列置換：" + strString + "<br>");
+			}
+
+			return strString;
+		}
+
+		// 文字列関数
+		let strRet = funcString( "abcdefghijklmn" );
+		// 結果表示
+		document.write( "結果：" + strRet + "<br>");
+
+</script>
+</body>
+</html>
