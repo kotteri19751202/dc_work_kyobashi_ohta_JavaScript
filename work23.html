@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>WORK23</title>
+</head>
+<body>
+	<div id="textbox">
+        <p id="element_1">要素1</p>
+    </div>
+	<script>
+		// idを指定して要素を取得
+		const element_1 = document.getElementById("element_1");
+		element_1.textContent = "変更後のテキスト";
+
+		// idを指定して要素を取得
+		const textbox = document.getElementById("textbox");
+		textbox.style.backgroundColor = "#ffff00";
+		// pタグを作成
+		const element_2 = document.createElement( "p");
+		element_2.textContent = "追加のテキスト";
+		element_2.style.color = "#ff0000";
+		element_2.style.fontSize = 30 + "px";
+
+		// 指定要素の中の末尾に追加要素を追加
+		textbox.appendChild( element_2 );
+	</script>
+</body>
+</html>
