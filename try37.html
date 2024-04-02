@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>TRY37</title>
+</head>
+<body>
+	<input type="button" value="ボタン" id="button">
+	<style>
+		#button{
+			background-color: #fff;
+		}
+	</style>
+	<script>
+		const button = document.getElementById("button");
+		mouseoverEvent = () =>
+		{
+			button.style.background = "#ffa500"
+		}
+		mouseoutEvent = () =>
+		{
+			button.style.background = "#ffffff"
+		}
+
+		button.addEventListener( "mouseover", mouseoverEvent);
+		button.addEventListener("mouseout", mouseoutEvent)
+	</script>
+</body>
+</html>
