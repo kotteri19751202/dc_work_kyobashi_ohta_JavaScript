@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>TRY39</title>
+</head>
+<body>
+	<div id="count_down">20</div>
+	<input type="button" id="start_button" value="スタート">
+
+	<script>
+		let g_Timer; // タイマー
+		
+		// カウントダウン開始関数
+		const startCountDown = () =>
+		{
+			g_Timer = setInterval( "countDown()", 1000 );
+		}
+
+		// ボタンクリック関数
+		const countDown = () =>
+		{
+			const eCountDown = document.getElementById("count_down");
+			// 表示されてるテキストを取得
+			let iSec = count_down.textContent;
+			// カウントダウン
+			iSec--;
+			eCountDown.textContent = iSec;
+			// リミット処理
+			if( iSec <= 0 )
+			{
+				alert("時間です");
+				eCountDown.textContent = 20;
+				clearInterval( g_Timer );
+			}
+		}
+
+		// スタートボタンを取得
+		const eStartButton = document.getElementById("start_button");
+		
+		// イベントリスナー追加
+		eStartButton.addEventListener("click", startCountDown ); 
+
+	</script>
+</body>
+</html>
