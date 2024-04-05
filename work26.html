@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>WORK26</title>
+</head>
+<body>
+	<!-- html -------------------------------------------->
+	<div class="background">
+		<p class="caption">ストップウォッチ</p>
+		<div class="time" id="time">00:00.00</div>
+		<div class="flex_item_box">
+			<input type="button" class="button" id="start_button" value="Start">
+			<input type="button" class="button" id="stop_button" value="Stop">
+			<input type="button" class="button" id="reset_button" value="Reset">
+		</div>
+	</div>
+	
+	<!-- css --------------------------------------------->
+	<style>
+		/* リセット設定 */
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		.caption{
+			font-size: 24px;
+			text-align: center;
+			color: white;
+		}
+		.background{
+			width: 240px;
+			height:180px;
+			padding: 20px 20px 20px;
+			background-color: green;
+			border-radius: 10px;
+		}
+		
+		.time{
+			font-size: 32px;
+			text-align: center;
+			background-color:black;
+			color:white;
+			border-radius: 10px;
+		}
+
+		.flex_item_box{
+			margin-top: 20px;
+			display: flex;
+			flex-direction: row;
+		}
+		.button{
+			width: 60px;
+			height: 35px;
+			margin:0 auto;
+			font-size: 20px;
+			text-align: center;
+			background-color:black;
+			color:white;
+			text-align: center;
+			border-radius: 10px;
+			box-shadow: 0 4px gray;
+			opacity: 1;
+		}
+		.button:disabled{
+			opacity: 0.33;
+		}
+		
+		.button:hover{
+			border-color: white;
+		}
+		
+		.button:active {
+			position: relative;
+			top: 4px;
+			box-shadow: none;
+		}
+	</style>
+	
+	<!-- js ---------------------------------------------->
+	<script>
+		// 無効化のオンオフ切り替え
+		const changeDisableState = ( id, bState ) =>
+		{
+			let eElement = document.getElementById( id );
+			eElement.disabled = bState;
+		}
+		
+		// スタート関数
+		const start = () =>
+		{
+			// ボタンの状態設定
+			changeDisableState( "start_button", true );
+			changeDisableState( "stop_button", false );
+			changeDisableState( "reset_button", true );
+		}
+		
+		// ストップ関数
+		const stop = () =>
+		{
+			// ボタンの状態設定
+			changeDisableState( "start_button", false );
+			changeDisableState( "stop_button", true );
+			changeDisableState( "reset_button", false );
+		}
+
+		// リセット関数
+		const reset = () =>
+		{
+			// 経過時間を初期化
+			g_iElapsedMillisec = 0;
+
+			// ボタンの状態設定
+			changeDisableState( "start_button", false );
+			changeDisableState( "stop_button", true );
+			changeDisableState( "reset_button", true );
+		}
+
+		// カウントアップ関数（ある意味メインループ）
+		const countUp = () =>
+		{
+			// ストップボタン要素を取得
+			let eStopButton = document.getElementById( "stop_button" );
+			// ストップ中じゃない時（リセット中も更新させるため抜けない）
+			if( eStopButton.disabled == false )
+			{
+				// 時間を進める
+				g_iElapsedMillisec += g_iInterval;
+			}
+			
+			// ミリ秒を取得
+			let iMillisec = Math.floor( ( g_iElapsedMillisec % 1000 ) / 10 );
+			// 秒を取得
+			let iSec = Math.floor( ( g_iElapsedMillisec / 1000 ) % 60 );
+			// 分を取得
+			let iMin = Math.floor( ( g_iElapsedMillisec / 1000 / 60  ) % 60 );
+
+			// 要素を取得
+			const eTime = document.getElementById("time");
+			// テキストを設定
+			eTime.textContent = String( iMin ).padStart( 2, "0")
+								+ ":" + String( iSec ).padStart( 2, "0")
+								+ ":" + String( iMillisec ).padStart( 2, "0");
+			
+		}
+
+		// スタートボタンを取得
+		const eStartButton = document.getElementById("start_button");
+		// イベントリスナー追加
+		eStartButton.addEventListener("click", start );
+		// ストップボタンを取得
+		const eStopButton = document.getElementById("stop_button");
+		// イベントリスナー追加
+		eStopButton.addEventListener("click", stop );
+		// スタートボタンを取得
+		const eResetButton = document.getElementById("reset_button");
+		// イベントリスナー追加
+		eResetButton.addEventListener("click", reset );
+
+
+		let g_IntervalID;			// インターバルID
+		let g_iElapsedMillisec = 0;	// 経過ミリ秒
+		const g_iInterval = 10;		// インターバルミリ秒
+
+		// 初期ボタンの状態設定
+		changeDisableState( "start_button", false );
+		changeDisableState( "stop_button", true );
+		changeDisableState( "reset_button", true );
+		
+		// インターバル設定（ある意味メインループ）
+		g_IntervalID = setInterval( "countUp()", g_iInterval );
+
+	</script>
+</body>
+</html>
