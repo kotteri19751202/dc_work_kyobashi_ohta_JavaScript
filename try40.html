@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<title>TRY40</title>
+</head>
+<body>
+	<div id="check_value">チェックしていません</div>
+	<label for="check">
+		<input type="checkbox" id="check">チェックボックス
+	</label>
+	<script>
+		// idを指定して要素を取得
+		//const check = document.getElementById("check");
+		// チェックボックスの状態に変化があったとき
+		const changeEvent = () =>
+		{
+			// idを指定して要素を取得
+			//const check_value = document.getElementById("check_value");
+			if( $("#check").prop("checked") )
+			{
+				$("#check_value").html("チェックしました" );
+			}
+			else
+			{
+				$("#check_value").html("チェックしていません" );
+			}
+		}
+
+		$("#check").change( changeEvent );
+		//check.addEventListener( "change", changeEvent );
+	</script>
+</body>
+</html>
