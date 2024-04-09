@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<title>WORK28</title>
+</head>
+<body>
+	<div id="count_down">20</div>
+	<input type="button" id="start_button" value="スタート">
+
+	<script>
+		let g_Timer; // タイマー
+
+		// カウントダウン開始関数
+		const startCountDown = () =>
+		{
+			g_Timer = setInterval( "countDown()", 1000 );
+		}
+
+		// カウントダウン関数
+		const countDown = () =>
+		{
+			//const eCountDown = document.getElementById("count_down");
+			// 表示されてるテキストを取得
+			let iSec = $("#count_down").text();
+			// カウントダウン
+			iSec--;
+			$("#count_down").text( iSec );
+			// リミット処理
+			if( iSec <= 0 )
+			{
+				alert("時間です");
+				$("#count_down").text( 20 );
+				clearInterval( g_Timer );
+			}
+		}
+
+		// スタートボタンを取得
+		//const eStartButton = document.getElementById("start_button");
+		
+		// イベントリスナー追加
+		//eStartButton.addEventListener("click", startCountDown );
+		$("#start_button").click( startCountDown ); 
+	</script>
+</body>
+</html>
