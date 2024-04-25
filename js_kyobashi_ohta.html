@@ -11,7 +11,7 @@
 	<!---------------------------------------------------->
 	<div class="background">
 		<p class="caption">簡易ピアノアプリ</p>
-		<!-- 現在の音程 -->
+		<!-- 現在の音階 -->
 		<div class="current_sound" id="current_sound">ド</div>
 		
 		<!-- キーボード -->
@@ -38,7 +38,7 @@
 		/* CSS変数宣言 */
 		:root{
 			/* フォントサイズ */
-			--fs-xx-large: 	26px;
+			--fs-xx-large: 	32px;
 			--fs-x-large: 	24px;
 			--fs-large: 	20px;
 			--fs-medium: 	16px;
@@ -52,13 +52,13 @@
 			/* その他の色 */
 			--back-ground-color:				black;			/* 背景色 */
 
-			--current-sound-background-color:	darkslateblue;	/* 現在の音程背景色 */
+			--current-sound-background-color:	darkslateblue;	/* 現在の音階背景色 */
 			
 			--keyboard-background-color:		white;			/* キーボード背景色 */
 			--keyboard-shadow-color:			#B7B7B7;		/* キーボードシャドウ色 */
 
 			--auto-play-background-color:		cyan;			/* 自動演奏ボタン背景色 */
-			--auto-play-shadow-color:			blue;			/* 自動演奏ボタンシャドウ色 */
+			--auto-play-shadow-color:			#32839C;		/* 自動演奏ボタンシャドウ色 */
 
 			--hover-background-color:			yellow;		/* ホバー背景色 */
 		}
@@ -69,12 +69,13 @@
 			padding: 0;
 			box-sizing: border-box;
 			user-select: none;		/* 選択不可 */
+			font-weight: bold;
 		}
 
 		/* 背景 */
 		.background{
 			width: 400px;
-			height:360px;
+			height:380px;
 			padding: 20px 20px 20px;
 			background-color: var(--back-ground-color);
 			border-radius: 10px;
@@ -87,7 +88,7 @@
 			margin-bottom: 20px;
 		}
 
-		/* 現在の音程 */
+		/* 現在の音階 */
 		.current_sound{
 			width: 30%;
 			margin: 0 auto;
@@ -95,15 +96,13 @@
 			text-align: center;
 			background-color: var(--current-sound-background-color);
 			color: var(--main-font-color);
-			border-radius: 5px;
+			border-radius: 40px;
 			margin-bottom: 20px;
 		}
 		/* キーボードフレックスボックス */
 		.flex_item_box{
 			display: flex;
 			flex-direction: row;
-			/*justify-content: center;
-  			align-items: center;*/
 			margin-bottom: 30px;
 		}
 		/* キーボード */
@@ -137,7 +136,7 @@
 			color: var(--sub-font-color);
 			text-align: center;
 			user-select: none;
-			border-radius: 5px;
+			border-radius: 10px;
 			box-shadow: 0 10px var(--auto-play-shadow-color);
 			opacity: 1;
 			margin-bottom: 20px;
@@ -169,13 +168,14 @@
 	//============================================================
 	
 	// 各種文字列
-	const CUURENT_SOUND_DEFAULT_STR = "　";			// 現在の音程のデフォルト文字列
+	const CUURENT_SOUND_DEFAULT_NAME = "　";			// 現在の音階のデフォルト文字列
 	const AUTO_PLAY_BUTTON_PLAY_STR = "自動演奏";	// 自動演奏ボタンの自動演奏文字列
 	const AUTO_PLAY_BUTTON_STOP_STR = "演奏停止";	// 自動演奏ボタンの演奏停止文字列
 	const AUTO_PLAY_INFO_STR = "自動演奏中です：";	// 自動演奏情報文字列
 	
-	// 手動演奏時の再生時間
-	const PLAY_TIME_MANUAL = 1000;
+	
+	const PLAY_TIME_MANUAL = 1000;	// 手動演奏時の再生時間
+	const SOUND_KEY_REST = "key_R";	// 休符文字列
 	
 	// 演奏モード列挙型
 	const ePlayMode = 
@@ -183,6 +183,12 @@
 		manual	: 1,
 		auto	: 2,
 	};
+
+	// 音関連の設定値
+	const PLAY_TONE_VOL = 0.5;					// ボリューム
+	const PLAY_TONE_EXPONENTIAL = 0.001;		// 音の指数変化値
+	const PLAY_TONE_PLAY_TIME_ADJUST_VAL = 1;	// 音を鳴らす時間の調整時間
+
 
 	//============================================================
 	// 音楽データマネージャクラス
@@ -376,6 +382,60 @@
 	}
 
 	//============================================================
+	// オーディオマネージャクラス（実際に音を鳴らす）
+	//============================================================
+	class CAudioMgr
+	{
+		// コンストラクタ
+		constructor()
+		{
+			// 音階と波長の連想配列
+			this.m_arrSoundFreq =
+			{
+				"key_C" : 261.63, 
+				"key_D" : 293.66, 
+				"key_E" : 329.63, 
+				"key_F" : 349.23, 
+				"key_G" : 392.00, 
+				"key_A" : 440.00, 
+				"key_B" : 493.88, 
+			}
+			
+			// オーディオコンテキストの作成
+			this.m_audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+		}
+
+		//-------------------------------------------------------
+		// 指定した周波数で音を鳴らす
+		//-------------------------------------------------------
+		playTone( strKey, fPlayTime )
+		{
+			// 周波数取得
+			const fFreq = this.m_arrSoundFreq[ strKey ];
+			// オシレーター作成
+			const oscillator = this.m_audioCtx.createOscillator();
+			// 周波数の設定
+			oscillator.frequency.setValueAtTime(fFreq, this.m_audioCtx.currentTime);
+
+			// ゲインノード作成
+			const gainNode = this.m_audioCtx.createGain();
+			// 音量設定
+			gainNode.gain.setValueAtTime(PLAY_TONE_VOL, this.m_audioCtx.currentTime);
+			// 音の変化値を設定
+			gainNode.gain.exponentialRampToValueAtTime(PLAY_TONE_EXPONENTIAL, 
+														this.m_audioCtx.currentTime + fPlayTime + PLAY_TONE_PLAY_TIME_ADJUST_VAL );
+			// 出力先に接続
+			oscillator.connect(gainNode);
+			gainNode.connect( this.m_audioCtx.destination);
+			
+			// 音の再生を開始
+			oscillator.start();
+			// 音の再生を停止する時間
+			oscillator.stop( this.m_audioCtx.currentTime + fPlayTime + PLAY_TONE_PLAY_TIME_ADJUST_VAL );
+		}
+	}
+
+	//============================================================
 	// 簡易ピアノクラス
 	//============================================================
 	class CSimplePiano
@@ -414,8 +474,8 @@
 			this.initAutoPlayMusicID();
 			// 自動演奏の音データ位置の初期化
 			this.initAutoPlaySoundDataPos();
-			// 現在の音程名の設定
-			this.setCurrentSoundName( CUURENT_SOUND_DEFAULT_STR );
+			// 現在の音階名の設定
+			this.setCurrentSoundName( CUURENT_SOUND_DEFAULT_NAME );
 
 			// キーボードのポインターイベントON
 			this.setKeyboardPointerEventState( true );
@@ -451,7 +511,7 @@
 		}
 
 		//-------------------------------------------------------
-		// 現在の音程名の設定
+		// 現在の音階名の設定
 		//-------------------------------------------------------
 		setCurrentSoundName = ( strCurrentSoundName ) =>
 		{
@@ -463,32 +523,36 @@
 		//-------------------------------------------------------
 		playSound = ( strCssID, iPlayTime ) =>
 		{
-			let strCurrentSoundName = ""; // 現在の音程名
+			let strCurrentSoundName = ""; // 現在の音階名
 			
 			// 休符の時
-			if( strCssID == "key_R")
+			if( strCssID == SOUND_KEY_REST )
 			{
-				// 現在の音程名
-				strCurrentSoundName = CUURENT_SOUND_DEFAULT_STR;
+				// 現在の音階名
+				strCurrentSoundName = CUURENT_SOUND_DEFAULT_NAME;
 			}
 			else // 休符じゃない時
 			{
-				// 現在の音程名
+				// 現在の音階名
 				strCurrentSoundName = $("#" + strCssID).text();
+				
 				// 自動演奏の時
 				if( this.ePlayMode == ePlayMode.auto )
 				{
-					// アクティブクラスを追加
+					// キーボードにアクティブクラスを追加
 					$("#" + strCssID).addClass( 'active' );
 				}
+				
+				// 音を鳴らす
+				audioMgr.playTone( strCssID, iPlayTime / 1000 );
 			}
-			// 現在の音程名の設定
+			// 現在の音階名の設定
 			this.setCurrentSoundName( strCurrentSoundName );
 
-			// タイムアウトの解除
+			// タイムアウトIDが存在したら
 			if( this.iTimeoutID != -1 )
 			{
-				// タイムアウトのクリア
+				// タイムアウトIDのクリア
 				clearTimeout( this.iTimeoutID );
 				// タイムアウトIDの初期化
 				this.initTimeoutID();
@@ -497,17 +561,18 @@
 			// タイムアウト設定
 			this.iTimeoutID = setTimeout( () =>
 			{
-				// 現在の音程文字列の設定
-				this.setCurrentSoundName( CUURENT_SOUND_DEFAULT_STR );
+				// 現在の音階名の設定
+				this.setCurrentSoundName( CUURENT_SOUND_DEFAULT_NAME );
 
 				// 自動演奏の時
 				if( this.ePlayMode == ePlayMode.auto )
 				{
-					// アクティブクラスを削除
+					// キーボードのアクティブクラスを削除
 					$("#" + strCssID).removeClass( 'active' );
 					// 自動演奏
 					this.playAuto();
 				}
+
 			}, iPlayTime )
 		}
 
@@ -559,7 +624,8 @@
 			{
 				// 手動演奏モードに設定
 				this.ePlayMode = ePlayMode.manual;
-				// アクティブクラスを削除
+
+				// キーボードのアクティブクラスを一括削除
 				$(".keyboard").removeClass( 'active' );
 
 				// 自動演奏の音楽IDの初期化
@@ -574,20 +640,6 @@
 			this.updateAutoPlayInfo();
 		}
 		
-		//-------------------------------------------------------
-		// キーボードのポインターイベント設定
-		//-------------------------------------------------------
-		setKeyboardPointerEventState = ( bState ) =>
-		{
-			let strState = ""; // 状態文字列
-
-			if( bState ) strState = "all";
-			else strState = "none";
-			
-			// ポインターイベント状態設定
-			$(".keyboard").css( "pointer-events", strState );
-		}
-
 		//-------------------------------------------------------
 		// 自動演奏情報の更新
 		//-------------------------------------------------------
@@ -613,6 +665,20 @@
 				$(".auto_play_info").text( strInfo );
 			}
 		}
+		
+		//-------------------------------------------------------
+		// キーボードのポインターイベント状態設定
+		//-------------------------------------------------------
+		setKeyboardPointerEventState = ( bState ) =>
+		{
+			let strState = ""; // 状態文字列
+
+			if( bState ) strState = "all";
+			else strState = "none";
+			
+			// ポインターイベント状態設定
+			$(".keyboard").css( "pointer-events", strState );
+		}
 	}
 
 	
@@ -636,10 +702,12 @@
 
 
 	//============================================================
+	// インスタンス作成
 	//============================================================
-	
 	// 音楽データマネージャ作成
 	let musicDataMgr = new CMusicDataMgr();
+	// オーディオマネージャ作成
+	let audioMgr = new CAudioMgr();
 	// 簡易ピアノ作成
 	let simplePiano = new CSimplePiano();
 
