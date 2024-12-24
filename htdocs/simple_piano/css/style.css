@@ -1,0 +1,121 @@
+/* CSS変数宣言 */
+:root{
+	/* フォントサイズ */
+	--fs-xx-large: 	32px;
+	--fs-x-large: 	24px;
+	--fs-large: 	20px;
+	--fs-medium: 	16px;
+	--fs-small: 	14px;
+	--fs-x-small: 	12px;
+
+	/* フォント色 */
+	--main-font-color:	#FFFFFF;
+	--sub-font-color:	#000000;
+
+	/* その他の色 */
+	--back-ground-color:				black;			/* 背景色 */
+
+	--current-sound-background-color:	darkslateblue;	/* 現在の音階背景色 */
+	
+	--keyboard-background-color:		white;			/* キーボード背景色 */
+	--keyboard-shadow-color:			#B7B7B7;		/* キーボードシャドウ色 */
+
+	--auto-play-background-color:		cyan;			/* 自動演奏ボタン背景色 */
+	--auto-play-shadow-color:			#32839C;		/* 自動演奏ボタンシャドウ色 */
+
+	--hover-background-color:			yellow;		/* ホバー背景色 */
+}
+
+/* リセット設定 */
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	user-select: none;		/* 選択不可 */
+	font-weight: bold;
+}
+
+/* 背景 */
+.background{
+	width: 400px;
+	height:380px;
+	padding: 20px 20px 20px;
+	background-color: var(--back-ground-color);
+	border-radius: 10px;
+}
+/* タイトル */
+.caption{
+	font-size: var(--fs-xx-large);
+	text-align: center;
+	color: var(--main-font-color);
+	margin-bottom: 20px;
+}
+
+/* 現在の音階 */
+.current_sound{
+	width: 30%;
+	margin: 0 auto;
+	font-size: var(--fs-xx-large);
+	text-align: center;
+	background-color: var(--current-sound-background-color);
+	color: var(--main-font-color);
+	border-radius: 40px;
+	margin-bottom: 20px;
+}
+/* キーボードフレックスボックス */
+.flex_item_box{
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 30px;
+}
+/* キーボード */
+.keyboard{
+	width: 50px;
+	height: 100px;
+	margin:0 auto;
+	font-size: var(--fs-large);
+	background-color:var(--keyboard-background-color);
+	color:var(--sub-font-color);
+	text-align: center;
+	border-radius: 5px;
+	box-shadow: 0 10px var(--keyboard-shadow-color);
+	opacity: 1;
+}
+.keyboard:hover{
+	background-color: var(--hover-background-color);
+}
+.keyboard:active, .keyboard.active{
+	position: relative;
+	top: 10px;
+	box-shadow: none;
+}
+
+/* 自動演奏ボタン */
+.auto_play{
+	width: 50%;
+	margin: 0 auto;
+	font-size: var(--fs-x-large);
+	background-color:var(--auto-play-background-color);
+	color: var(--sub-font-color);
+	text-align: center;
+	user-select: none;
+	border-radius: 10px;
+	box-shadow: 0 10px var(--auto-play-shadow-color);
+	opacity: 1;
+	margin-bottom: 20px;
+}
+.auto_play:hover{
+	background-color: var(--hover-background-color);
+}		
+.auto_play:active {
+	position: relative;
+	top: 5px;
+	box-shadow: 0 5px var(--auto-play-shadow-color);
+}
+
+/* 自動演奏情報 */
+.auto_play_info{
+	font-size: var(--fs-large);
+	text-align: center;
+	color: var(--main-font-color);
+}
