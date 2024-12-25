@@ -12,7 +12,7 @@
 const CUURENT_SOUND_DEFAULT_NAME = "　";			// 現在の音階のデフォルト文字列
 const AUTO_PLAY_BUTTON_PLAY_STR = "自動演奏";	// 自動演奏ボタンの自動演奏文字列
 const AUTO_PLAY_BUTTON_STOP_STR = "演奏停止";	// 自動演奏ボタンの演奏停止文字列
-const AUTO_PLAY_INFO_STR = "自動演奏中です：";	// 自動演奏情報文字列
+const AUTO_PLAY_INFO_STR = "自動演奏中：";	// 自動演奏情報文字列
 
 
 const PLAY_TIME_MANUAL = 1000;	// 手動演奏時の再生時間
@@ -30,6 +30,9 @@ const PLAY_TONE_VOL = 0.5;					// ボリューム
 const PLAY_TONE_EXPONENTIAL = 0.001;		// 音の指数変化値
 const PLAY_TONE_PLAY_TIME_ADJUST_VAL = 1;	// 音を鳴らす時間の調整時間
 
+// 音楽データURL
+const MUSIC_DATA_URL = "https://portfolio02.dc-itex.com/kyobashi/0001/simple_piano/data/music_data.json";
+
 
 //============================================================
 // 音楽データマネージャクラス
@@ -39,170 +42,33 @@ class CMusicDataMgr
 	// コンストラクタ
 	constructor()
 	{
-		// 音楽データ連想配列
-		this.m_arrMusicData =
-		[
-			// きらきら星 ---------------------------------------------
-			{ 
-				"iMusicID" : 0, 
-				"strMusicName" : "きらきら星",
-				"arrSoundData" : 
-				[
-					{ "strSoundKey" : "key_C", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_C", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },						
-					{ "strSoundKey" : "key_G", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_G", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
-
-					{ "strSoundKey" : "key_A", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_A", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_G", "iPlayTime" : 2000 },
-
-					{ "strSoundKey" : "key_F", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_F", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },						
-					{ "strSoundKey" : "key_E", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_E", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
-
-					{ "strSoundKey" : "key_D", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_D", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_C", "iPlayTime" : 2000 },
-
-
-					{ "strSoundKey" : "key_G", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_G", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },						
-					{ "strSoundKey" : "key_F", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_F", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
-
-					{ "strSoundKey" : "key_E", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_E", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_D", "iPlayTime" : 2000 },
-
-					{ "strSoundKey" : "key_G", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_G", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },						
-					{ "strSoundKey" : "key_F", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_F", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
-
-					{ "strSoundKey" : "key_E", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_E", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_D", "iPlayTime" : 2000 },
-
-
-					{ "strSoundKey" : "key_C", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_C", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },						
-					{ "strSoundKey" : "key_G", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_G", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
-
-					{ "strSoundKey" : "key_A", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_A", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_G", "iPlayTime" : 2000 },
-
-					{ "strSoundKey" : "key_F", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_F", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },						
-					{ "strSoundKey" : "key_E", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_E", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
-
-					{ "strSoundKey" : "key_D", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_D", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_C", "iPlayTime" : 4000 },
-				]
-			},
-			// チューリップ --------------------------------------
-			{ 
-				"iMusicID" : 1, 
-				"strMusicName" : "チューリップ",
-				"arrSoundData" : 
-				[
-					{ "strSoundKey" : "key_C", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_D", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_E", "iPlayTime" : 1000 },
-					{ "strSoundKey" : "key_C", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_D", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_E", "iPlayTime" : 1000 },
-
-					{ "strSoundKey" : "key_G", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_E", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_D", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_C", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_D", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_E", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_D", "iPlayTime" : 1000 },
-
-					{ "strSoundKey" : "key_C", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_D", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_E", "iPlayTime" : 1000 },
-					{ "strSoundKey" : "key_C", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_D", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_E", "iPlayTime" : 1000 },
-
-					{ "strSoundKey" : "key_G", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_E", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_D", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_C", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_D", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_E", "iPlayTime" : 500 },
-					{ "strSoundKey" : "key_C", "iPlayTime" : 1000 },
-
-					{ "strSoundKey" : "key_G", "iPlayTime" : 250 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 250 },
-					{ "strSoundKey" : "key_G", "iPlayTime" : 250 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 250 },
-					{ "strSoundKey" : "key_E", "iPlayTime" : 250 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 250 },
-					{ "strSoundKey" : "key_G", "iPlayTime" : 250 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 250 },
-					{ "strSoundKey" : "key_A", "iPlayTime" : 250 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 250 },
-					{ "strSoundKey" : "key_A", "iPlayTime" : 250 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 250 },
-					{ "strSoundKey" : "key_G", "iPlayTime" : 1000 },
-					
-					{ "strSoundKey" : "key_E", "iPlayTime" : 250 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 250 },
-					{ "strSoundKey" : "key_E", "iPlayTime" : 250 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 250 },
-					{ "strSoundKey" : "key_D", "iPlayTime" : 250 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 250 },
-					{ "strSoundKey" : "key_D", "iPlayTime" : 250 },
-					{ "strSoundKey" : "key_R", "iPlayTime" : 250 },
-					{ "strSoundKey" : "key_C", "iPlayTime" : 4000 },
-				]
-			},
-		]
+		// 音楽データjsonをダウンロードする
+		fetch( MUSIC_DATA_URL )
+		.then( ( response ) =>	// 返信結果
+		{
+			console.log( "返信あり" );
+			// 失敗の時
+			if( !response.ok )
+			{
+				console.log( "エラー投げる" );
+				// エラー投げる
+				throw new Error();
+			}
+			console.log( "json形式にする" );
+			// json形式に変換して次のthenへ
+			return response.json();
+		} )
+		.then( ( json ) =>		// jsonデータを処理する
+		{
+			console.log( "json形式受け取り" );
+			console.log( json );
+			// 音楽データ保存
+			this.m_arrMusicData = json;
+		} )
+		.catch( ( reason ) =>	// エラー処理
+		{
+			console.log( reason );
+		} );
 	}
 
 	//-------------------------------------------------------

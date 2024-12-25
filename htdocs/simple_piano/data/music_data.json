@@ -1,0 +1,161 @@
+[
+	{ 
+		"iMusicID" : 0, 
+		"strMusicName" : "きらきら星",
+		"arrSoundData" : 
+		[
+			{ "strSoundKey" : "key_C", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_C", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_G", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_G", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+
+			{ "strSoundKey" : "key_A", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_A", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_G", "iPlayTime" : 2000 },
+
+			{ "strSoundKey" : "key_F", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_F", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },	
+			{ "strSoundKey" : "key_E", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_E", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+
+			{ "strSoundKey" : "key_D", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_D", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_C", "iPlayTime" : 2000 },
+
+
+			{ "strSoundKey" : "key_G", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_G", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_F", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_F", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+
+			{ "strSoundKey" : "key_E", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_E", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_D", "iPlayTime" : 2000 },
+
+			{ "strSoundKey" : "key_G", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_G", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_F", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_F", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+
+			{ "strSoundKey" : "key_E", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_E", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_D", "iPlayTime" : 2000 },
+
+
+			{ "strSoundKey" : "key_C", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_C", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_G", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_G", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+
+			{ "strSoundKey" : "key_A", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_A", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_G", "iPlayTime" : 2000 },
+
+			{ "strSoundKey" : "key_F", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_F", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_E", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_E", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+
+			{ "strSoundKey" : "key_D", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_D", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_C", "iPlayTime" : 4000 }
+		]
+	},
+	{ 
+		"iMusicID" : 1, 
+		"strMusicName" : "チューリップ",
+		"arrSoundData" : 
+		[
+			{ "strSoundKey" : "key_C", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_D", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_E", "iPlayTime" : 1000 },
+			{ "strSoundKey" : "key_C", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_D", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_E", "iPlayTime" : 1000 },
+
+			{ "strSoundKey" : "key_G", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_E", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_D", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_C", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_D", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_E", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_D", "iPlayTime" : 1000 },
+
+			{ "strSoundKey" : "key_C", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_D", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_E", "iPlayTime" : 1000 },
+			{ "strSoundKey" : "key_C", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_D", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_E", "iPlayTime" : 1000 },
+
+			{ "strSoundKey" : "key_G", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_E", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_D", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_C", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_D", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_E", "iPlayTime" : 500 },
+			{ "strSoundKey" : "key_C", "iPlayTime" : 1000 },
+
+			{ "strSoundKey" : "key_G", "iPlayTime" : 250 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 250 },
+			{ "strSoundKey" : "key_G", "iPlayTime" : 250 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 250 },
+			{ "strSoundKey" : "key_E", "iPlayTime" : 250 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 250 },
+			{ "strSoundKey" : "key_G", "iPlayTime" : 250 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 250 },
+			{ "strSoundKey" : "key_A", "iPlayTime" : 250 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 250 },
+			{ "strSoundKey" : "key_A", "iPlayTime" : 250 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 250 },
+			{ "strSoundKey" : "key_G", "iPlayTime" : 1000 },
+			
+			{ "strSoundKey" : "key_E", "iPlayTime" : 250 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 250 },
+			{ "strSoundKey" : "key_E", "iPlayTime" : 250 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 250 },
+			{ "strSoundKey" : "key_D", "iPlayTime" : 250 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 250 },
+			{ "strSoundKey" : "key_D", "iPlayTime" : 250 },
+			{ "strSoundKey" : "key_R", "iPlayTime" : 250 },
+			{ "strSoundKey" : "key_C", "iPlayTime" : 4000 }
+		]
+	}
+]
+
