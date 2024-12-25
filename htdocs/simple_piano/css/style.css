@@ -112,6 +112,7 @@
 	opacity: 1;
 	margin: 0 auto;
 	margin-bottom: 20px;
+	display: none;
 }
 .auto_play:hover{
 	background-color: var(--hover-background-color);

@@ -64,6 +64,8 @@ class CMusicDataMgr
 			console.log( json );
 			// 音楽データ保存
 			this.m_arrMusicData = json;
+			// 自動演奏ボタンを表示する
+			$(".auto_play").css( "display", "block" );
 		} )
 		.catch( ( reason ) =>	// エラー処理
 		{
