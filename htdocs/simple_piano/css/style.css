@@ -15,15 +15,19 @@
 	/* その他の色 */
 	--back-ground-color:				black;			/* 背景色 */
 
-	--current-sound-background-color:	darkslateblue;	/* 現在の音階背景色 */
+	--caption-background-color:			#666666;		/* キャプション背景色 */
+	--caption-shadow-color:				#434343;		/* キャプションシャドウ色 */
+
+	--current-sound-background-color:	#3d85c6;		/* 現在の音階背景色 */
+	--current-sound-shadow-color:		#0b5394;		/* 現在の音階シャドウ色 */
 	
 	--keyboard-background-color:		white;			/* キーボード背景色 */
 	--keyboard-shadow-color:			#B7B7B7;		/* キーボードシャドウ色 */
 
-	--auto-play-background-color:		cyan;			/* 自動演奏ボタン背景色 */
-	--auto-play-shadow-color:			#32839C;		/* 自動演奏ボタンシャドウ色 */
+	--auto-play-background-color:		#f6b26b;			/* 自動演奏ボタン背景色 */
+	--auto-play-shadow-color:			#b45f06;		/* 自動演奏ボタンシャドウ色 */
 
-	--hover-background-color:			yellow;		/* ホバー背景色 */
+	--hover-background-color:			#fce5cd;		/* ホバー背景色 */
 }
 
 /* リセット設定 */
@@ -41,25 +45,30 @@
 	height:380px;
 	padding: 20px 20px 20px;
 	background-color: var(--back-ground-color);
-	border-radius: 10px;
+	/*border-radius: 10px;*/
 }
 /* タイトル */
 .caption{
 	font-size: var(--fs-xx-large);
 	text-align: center;
 	color: var(--main-font-color);
+	background-color: var(--caption-background-color);
+	box-shadow: 0 10px var(--caption-shadow-color);
+	/*border:5px solid #666666;*/
+	border-radius: 5px;
 	margin-bottom: 20px;
 }
 
 /* 現在の音階 */
 .current_sound{
 	width: 30%;
-	margin: 0 auto;
 	font-size: var(--fs-xx-large);
 	text-align: center;
-	background-color: var(--current-sound-background-color);
 	color: var(--main-font-color);
-	border-radius: 40px;
+	background-color: var(--current-sound-background-color);
+	box-shadow: 0 10px var(--current-sound-shadow-color);
+	border-radius: 5px;
+	margin: 0 auto;
 	margin-bottom: 20px;
 }
 /* キーボードフレックスボックス */
@@ -72,14 +81,14 @@
 .keyboard{
 	width: 50px;
 	height: 100px;
-	margin:0 auto;
 	font-size: var(--fs-large);
-	background-color:var(--keyboard-background-color);
-	color:var(--sub-font-color);
 	text-align: center;
-	border-radius: 5px;
+	color:var(--sub-font-color);
+	background-color:var(--keyboard-background-color);
 	box-shadow: 0 10px var(--keyboard-shadow-color);
+	border-radius: 5px;
 	opacity: 1;
+	margin:0 auto;
 }
 .keyboard:hover{
 	background-color: var(--hover-background-color);
@@ -93,15 +102,15 @@
 /* 自動演奏ボタン */
 .auto_play{
 	width: 50%;
-	margin: 0 auto;
 	font-size: var(--fs-x-large);
-	background-color:var(--auto-play-background-color);
-	color: var(--sub-font-color);
 	text-align: center;
-	user-select: none;
-	border-radius: 10px;
+	color: var(--sub-font-color);
+	background-color:var(--auto-play-background-color);
 	box-shadow: 0 10px var(--auto-play-shadow-color);
+	border-radius: 5px;
+	user-select: none;
 	opacity: 1;
+	margin: 0 auto;
 	margin-bottom: 20px;
 }
 .auto_play:hover{
