@@ -33,6 +33,25 @@ const PLAY_TONE_PLAY_TIME_ADJUST_VAL = 1;	// 音を鳴らす時間の調整時�
 // 音楽データURL
 const MUSIC_DATA_URL = "https://portfolio02.dc-itex.com/kyobashi/0001/simple_piano/data/music_data.json";
 
+// デバッグ表示
+const _DEBUG = false;
+//const _DEBUG = true;
+
+//============================================================
+// デバッグクラス
+//============================================================
+class CDebug
+{
+	//-------------------------------------------------------
+	// デバッグ表示
+	//-------------------------------------------------------
+	static dprint = ( strString ) =>
+	{
+		// コンソールログに表示
+		if( _DEBUG ) console.log( strString );
+	}
+}
+
 
 //============================================================
 // 音楽データマネージャクラス
@@ -46,22 +65,22 @@ class CMusicDataMgr
 		fetch( MUSIC_DATA_URL )
 		.then( ( response ) =>	// 返信結果
 		{
-			console.log( "返信あり" );
+			CDebug.dprint( "返信あり" );
 			// 失敗の時
 			if( !response.ok )
 			{
-				console.log( "エラー投げる" );
+				CDebug.dprint( "エラー投げる" );
 				// エラー投げる
 				throw new Error();
 			}
-			console.log( "json形式にする" );
+			CDebug.dprint( "json形式にする" );
 			// json形式に変換して次のthenへ
 			return response.json();
 		} )
 		.then( ( json ) =>		// jsonデータを処理する
 		{
-			console.log( "json形式受け取り" );
-			console.log( json );
+			CDebug.dprint( "json形式受け取り" );
+			CDebug.dprint( json );
 			// 音楽データ保存
 			this.m_arrMusicData = json;
 			// 自動演奏ボタンを表示する
@@ -69,7 +88,8 @@ class CMusicDataMgr
 		} )
 		.catch( ( reason ) =>	// エラー処理
 		{
-			console.log( reason );
+			CDebug.dprint( "エラー処理" );
+			CDebug.dprint( reason );
 		} );
 	}
 
