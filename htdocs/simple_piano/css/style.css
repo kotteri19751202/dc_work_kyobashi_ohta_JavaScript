@@ -45,7 +45,7 @@
 	height:380px;
 	padding: 20px 20px 20px;
 	background-color: var(--back-ground-color);
-	/*border-radius: 10px;*/
+	margin: 16px auto;
 }
 /* タイトル */
 .caption{
