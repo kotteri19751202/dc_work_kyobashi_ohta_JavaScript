@@ -31,7 +31,7 @@ const PLAY_TONE_EXPONENTIAL = 0.001;		// 音の指数変化値
 const PLAY_TONE_PLAY_TIME_ADJUST_VAL = 1;	// 音を鳴らす時間の調整時間
 
 // 音楽データURL
-const MUSIC_DATA_URL = "https://portfolio02.dc-itex.com/kyobashi/0001/simple_piano/data/music_data.json";
+const MUSIC_DATA_URL = "data/music_data.json";
 
 // デバッグ表示
 const _DEBUG = false;
